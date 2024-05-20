@@ -83,3 +83,21 @@ SNS (Xなど)を利用してサービスの宣伝、アピールをしていく�
 →ActiveJob
 ユーザーの階級制度、ランキング
 →UserモデルやPostモデルにロジックを実装
+
+■機能
+使用予定の技術スタック
+
+■ 開発環境: Docker
+■ サーバサイド: Ruby on Rails 7系
+　　Ruby 3.2.2 Rails 7.0.7
+■ フロントエンド: HotWire
+■ CSSフレームワーク: bootstrap5系
+■ WebAPI: GoogleCloudVisionAPI（画像認識による自動タグ付けAPI）
+■ インフラ:
+・ Webアプリケーションサーバ: Fly.io
+・ ファイルサーバ: AWS S3
+・ セッションサーバ: Redis（Redis by Upstash）
+・ データベースサーバ: PostgreSQL（Fly Postgres）
+■ その他：
+・ VCS: GitHub
+・ CI/CD: GitHubActions
