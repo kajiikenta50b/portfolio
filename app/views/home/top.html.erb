@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天下糖一 三穀志</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff;
+    }
+    .navbar, .footer {
+      background-color: #D7000F; /* 朱色 */
+    }
+    .navbar a, .footer a {
+      color: #fff !important;
+    }
+    .footer {
+      padding: 1rem 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">天下糖一 三穀志</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/login">ログイン</a>
+          </li>
+          <li class="nav-item">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
+              <button class="btn btn-outline-light" type="submit">検索</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col text-center">
+        <a href="/signup" class="btn btn-primary btn-lg mb-3">会員登録</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>投稿一覧</h2>
+        <!-- 投稿一覧の内容はここに追加されます -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <a href="/contact" class="me-3">お問い合わせ</a>
+      <a href="/terms" class="me-3">利用規約</a>
+      <a href="/privacy">プライバシーポリシー</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

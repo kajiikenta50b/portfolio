@@ -10,7 +10,7 @@ console_command = '/rails/bin/rails console'
 [build]
 
 [deploy]
-  release_command = "/rails/bin/rails db:migrate"
+  release_command = "/rails/bin/rails db:prepare"
 
 [http_service]
   internal_port = 3000
@@ -46,7 +46,7 @@ console_command = '/rails/bin/rails console'
 
 [env]
   RAILS_ENV = "production"
-  DATABASE_URL = "postgres://<%= ENV['MYAPP_DATABASE_USERNAME'] %>:<%= ENV['MYAPP_DATABASE_PASSWORD'] %>@<%= ENV['MYAPP_DATABASE_HOST'] %>/myapp_production"
-  MYAPP_DATABASE_USERNAME = "<%= ENV['MYAPP_DATABASE_USERNAME'] %>"
-  MYAPP_DATABASE_PASSWORD = "<%= ENV['MYAPP_DATABASE_PASSWORD'] %>"
-  MYAPP_DATABASE_HOST = "<%= ENV['MYAPP_DATABASE_HOST'] %>"
+  DATABASE_URL = "postgres://postgres:bVtJAwJLgL3GmcZ@3foodskingdom-db.internal/myapp_production"
+  MYAPP_DATABASE_USERNAME = "postgres"
+  MYAPP_DATABASE_PASSWORD = "bVtJAwJLgL3GmcZ"
+  MYAPP_DATABASE_HOST = "3foodskingdom-db.internal"
