@@ -1,9 +1,45 @@
-<h1>New user</h1>
-
-<%= render "form", user: @user %>
-
-<br>
-
-<div>
-  <%= link_to "Back to users", users_path %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h2 class="mb-4">会員登録</h2>
+      <%= form_with(model: @user, local: true) do |form| %>
+        <div class="mb-3">
+          <%= form.label :username, '名前', class: 'form-label' %>
+          <%= form.text_field :username, class: 'form-control', placeholder: '名前を入力' %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :email, 'メールアドレス', class: 'form-label' %>
+          <%= form.email_field :email, class: 'form-control', placeholder: 'メールアドレスを入力' %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :password, 'パスワード', class: 'form-label' %>
+          <%= form.password_field :password, class: 'form-control', placeholder: 'パスワードを入力(3文字以上)' %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :password_confirmation, 'パスワード確認', class: 'form-label' %>
+          <%= form.password_field :password_confirmation, class: 'form-control', placeholder: 'もう一度パスワードを入力' %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :faction, 'どの炭水化物で飯テロする？', class: 'form-label' %><br>
+          <div class="form-check form-check-inline">
+            <%= form.radio_button :faction, 'rice', id: 'faction1', class: 'form-check-input' %>
+            <%= form.label :faction_rice, '米', class: 'form-check-label', for: 'faction1' %>
+          </div>
+          <div class="form-check form-check-inline">
+            <%= form.radio_button :faction, 'noodle', id: 'faction2', class: 'form-check-input' %>
+            <%= form.label :faction_noodle, '麺', class: 'form-check-label', for: 'faction2' %>
+          </div>
+          <div class="form-check form-check-inline">
+            <%= form.radio_button :faction, 'bread', id: 'faction3', class: 'form-check-input' %>
+            <%= form.label :faction_bread, 'パン', class: 'form-check-label', for: 'faction3' %>
+          </div>
+          <p>※注意！ 選択した炭水化物は会員登録後に変更はできません！</p>
+        </div>
+        <%= form.submit '登録する', class: 'btn btn-primary' %>
+      <% end %>
+      <div class="mt-3">
+        登録済みの方は<%= link_to 'こちら', login_path %>へ
+      </div>
+    </div>
+  </div>
 </div>

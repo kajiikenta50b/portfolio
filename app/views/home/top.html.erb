@@ -1,75 +1,27 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>天下糖一 三穀志</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #fff;
-    }
-    .navbar, .footer {
-      background-color: #D7000F; /* 朱色 */
-    }
-    .navbar a, .footer a {
-      color: #fff !important;
-    }
-    .footer {
-      padding: 1rem 0;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <!-- Header -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">天下糖一 三穀志</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/login">ログイン</a>
-          </li>
-          <li class="nav-item">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="検索" aria-label="Search">
-              <button class="btn btn-outline-light" type="submit">検索</button>
-            </form>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col text-center">
-        <a href="/signup" class="btn btn-primary btn-lg mb-3">会員登録</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <h2>投稿一覧</h2>
-        <!-- 投稿一覧の内容はここに追加されます -->
-      </div>
+<!-- Main Content -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col text-center">
+    <h1>「飯テロ(めしテロ)」</h1>
+    <p>
+    それは「第三者の食欲を刺激して苛ませる行為」という意味で用いられる俗な表現である。
+    </p>
+    <br>
+    <br>
+    <h4>
+    ここは食欲が食欲を呼ぶ飯テロ"三穀時代"。飯テロすることだけを目的とした世界。<br>
+    「米」「麺」「パン」の3つの炭水化物。投稿できるジャンルは1つだけ。<br>
+    選んだ炭水化物の飯テロであなたもこの「三穀志」の歴史の新たな1ページを作ろう。
+    </h4>
+    <br>
+    <br>
+      <%= link_to '会員登録はこちら', new_user_path, class: 'btn btn-primary btn-lg mb-3' %>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer class="footer mt-auto py-3">
-    <div class="container">
-      <a href="/contact" class="me-3">お問い合わせ</a>
-      <a href="/terms" class="me-3">利用規約</a>
-      <a href="/privacy">プライバシーポリシー</a>
+  <div class="row">
+    <div class="col">
+      <h2>投稿一覧</h2>
+      <!-- 投稿一覧の内容はここに追加されます -->
     </div>
-  </footer>
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+  </div>
+</div>
