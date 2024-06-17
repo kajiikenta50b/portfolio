@@ -1,0 +1,40 @@
+/* 背景画像をスライドさせるアニメーションの定義 */
+@keyframes backgroundSlide {
+    0% { background-image: url('ra-men.jpeg'); }
+    33% { background-image: url('ra-men.jpeg'); }
+    34% { background-image: url('sushi.jpeg'); }
+    66% { background-image: url('sushi.jpeg'); }
+    67% { background-image: url('hamburger.jpeg'); }
+    100% { background-image: url('hamburger.jpeg'); }
+  }
+  
+  /* アニメーションを適用するためのスタイル */
+  .background-slider {
+    height: 75vh; /* 画面全体の高さ */
+    width: 100%; /* 画面全体の幅 */
+    background-size: cover;
+    background-position: center;
+    animation: backgroundSlide 30s infinite;
+  }
+
+  /* 追加のスタイル（必要に応じて） */
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  body {
+    background-color: #fff;
+  }
+  .navbar, .footer {
+    background-color: #D7000F; /* 朱色 */
+  }
+  .navbar a, .footer a {
+    color: #fff !important;
+  }
+  .footer {
+    padding: 1rem 0;
+    text-align: center;
+  }
