@@ -18,10 +18,20 @@
       <%= link_to '会員登録はこちら', new_user_path, class: 'btn btn-primary btn-lg mb-3' %>
     </div>
   </div>
+  <br>
+  <br>
   <div class="row">
-    <div class="col">
+    <div class="col text-center">
       <h2>投稿一覧</h2>
+      <br>
       <!-- 投稿一覧の内容はここに追加されます -->
+      <% if @posts.present? %>
+      <% @posts.each do |post| %>
+        <%= render 'posts/post', post: post %>
+      <% end %>
+      <% else %>
+        <div class="mb-3">投稿がありません</div>
+      <% end %>
     </div>
   </div>
 </div>

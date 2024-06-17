@@ -230,6 +230,11 @@ GEM
       childprocess (~> 5.0)
     letter_opener (1.10.0)
       launchy (>= 2.2, < 4)
+    libv8-node (21.7.2.0)
+    libv8-node (21.7.2.0-aarch64-linux)
+    libv8-node (21.7.2.0-arm64-darwin)
+    libv8-node (21.7.2.0-x86_64-darwin)
+    libv8-node (21.7.2.0-x86_64-linux)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -242,6 +247,8 @@ GEM
     matrix (0.4.2)
     mini_magick (4.13.0)
     mini_mime (1.1.5)
+    mini_racer (0.12.0)
+      libv8-node (~> 21.7.2.0)
     minitest (5.23.1)
     msgpack (1.7.2)
     multi_json (1.15.0)
@@ -439,6 +446,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   dockerfile-rails (>= 1.6)
+  execjs
   faker
   google-cloud-vision
   image_processing (~> 1.2)
@@ -446,6 +454,7 @@ DEPENDENCIES
   jsbundling-rails
   letter_opener
   mini_magick
+  mini_racer
   pg (~> 1.1)
   puma (>= 5.0)
   pundit
