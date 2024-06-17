@@ -4,10 +4,6 @@
 ARG RUBY_VERSION=3.2.3
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
-# Install Node.js
-RUN apt-get update && \
-    apt-get install -y nodejs npm
-
 # Rails app lives here
 WORKDIR /rails
 
