@@ -7,5 +7,7 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
 
+  has_many :posts, dependent: :destroy
+
   enum faction: { rice: 0, noodle: 1, bread: 2 }
 end
