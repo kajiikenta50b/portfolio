@@ -46,7 +46,3 @@ console_command = '/rails/bin/rails console'
 
 [env]
   RAILS_ENV = "production"
-  DATABASE_URL = "postgres://postgres:bVtJAwJLgL3GmcZ@3foodskingdom-db.internal/myapp_production"
-  MYAPP_DATABASE_USERNAME = "postgres"
-  MYAPP_DATABASE_PASSWORD = "bVtJAwJLgL3GmcZ"
-  MYAPP_DATABASE_HOST = "3foodskingdom-db.internal"
