@@ -57,6 +57,7 @@ gem 'aws-sdk-s3'
 gem 'rspec-rails'
 gem 'faker'
 gem 'mini_magick'
+gem 'carrierwave', '~> 2.0'
 gem 'letter_opener'
 
 gem 'execjs'
