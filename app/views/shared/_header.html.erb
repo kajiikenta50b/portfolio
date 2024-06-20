@@ -1,25 +1,27 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #D3342D;">
-  <div class="container-fluid">
-    <%= link_to '天下糖一 三穀志', root_path, class: 'navbar-brand text-white' %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <form class="d-flex" action="/search" method="get">
-        <input class="form-control me-2" type="search" placeholder="検索" aria-label="検索" name="q">
-        <button class="btn btn-outline-light" type="submit">検索</button>
-      </form>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to '新規投稿', new_post_path, class: 'nav-link text-white' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'マイページ', "#", class: 'nav-link text-white' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'nav-link text-white' %>
-        </li>
-      </ul>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #D3342D;">
+    <div class="container-fluid">
+      <%= link_to '天下糖一 三穀志', root_path, class: 'navbar-brand text-white' %>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <form class="d-flex" action="/search" method="get">
+          <input class="form-control me-2" type="search" placeholder="検索" aria-label="検索" name="q">
+          <button class="btn btn-outline-light" type="submit">検索</button>
+        </form>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to t('header.new_post'), new_post_path, class: 'nav-link text-white' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'マイページ', "#", class: 'nav-link text-white' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete }, class: 'nav-link text-white' %>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>

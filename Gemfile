@@ -59,6 +59,7 @@ gem 'faker'
 gem 'mini_magick'
 gem 'carrierwave', '~> 2.0'
 gem 'letter_opener'
+gem 'rails-i18n', '~> 7.0.0'
 
 gem 'execjs'
 gem 'mini_racer'
