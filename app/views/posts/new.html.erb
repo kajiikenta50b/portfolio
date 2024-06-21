@@ -2,7 +2,10 @@
   <div class="row">
     <div class="col-lg-8 offset-lg-2">
     <br>
-      <h1>t('.title')</h1>
+      <h1><%= t('.title') %></h1>
+      <p>「飯テロってどうやるの？」という方は下記マニュアルをチェック！</p>
+      <%= link_to '飯テロマニュアルを読む', manual_path, class: 'btn btn-danger btn-lg mb-3' %>
+      <br>
       <br>
       <%= form_with model: @post, class: "new_post" do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
