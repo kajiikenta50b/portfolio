@@ -1,11 +1,11 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div id="post-id-<%= post.id %>">
     <div class="card">
-      <%= image_tag post.post_image_url, class: "card-img-top", width: "300", height:"200" %>
+      <%= image_tag post.post_image.url, class: "card-img-top", width: "300", height:"200" %>
       <div class="card-body">
         <div class="d-flex">
           <h4 class="card-title">
-            <%= link_to post.title, '#' %>
+            <%= link_to post.title, post_path(post) %>
           </h4>
           <div class='ms-auto'>
             <%= link_to '#', id: 'button-edit-#{post.id}' do %>
@@ -16,7 +16,6 @@
             <% end %>
           </div>
         </div>
-        <p class="card-text">本文</p>
       </div>
     </div>
   </div>
