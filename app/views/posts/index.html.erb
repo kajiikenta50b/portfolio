@@ -15,7 +15,7 @@
       <div class="row">
         <% if @posts.present? %>
           <% @posts.each do |post| %>
-            <%= render @boards %>
+            <%= render @posts %>
           <% end %>
         <% else %>
           <div class="mb-3">投稿がありません</div>

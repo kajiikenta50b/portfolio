@@ -7,20 +7,21 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  defaults:
+    post: 投稿
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
   header:
     login: ログイン
     logout: ログアウト
     post: 投稿
-    post_index: 投稿一覧
     new_post: 新規投稿
-    bookmark_index: ブックマーク一覧
     my_page: マイページ
   user_sessions:
     new:
       title: ログイン
       login: ログイン
-      to_register_page: 登録ページへ
-      password_forget: パスワードをお忘れの方はこちら
     create:
       success: ログインしました
       failure: ログインに失敗しました
@@ -29,7 +30,6 @@ ja:
   users:
     new:
       title: 会員登録
-      to_login_page: ログインページへ
     create:
       success: 会員登録が完了しました
       failure: 会員登録に失敗しました

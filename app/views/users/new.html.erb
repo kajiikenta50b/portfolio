@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h2 class="mb-4">t('.title')</h2>
+      <h2 class="mb-4"><%= t('.title') %></h2>
       <%= form_with(model: @user, local: true) do |form| %>
-        <%= render 'shared/error_messages', object: f.object %>
+        <%= render 'shared/error_messages', object: form.object %>
         <div class="mb-3">
           <%= form.label :username, '名前', class: 'form-label' %>
           <%= form.text_field :username, class: 'form-control', placeholder: '名前を入力' %>
