@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :comments, only: %i[ create edit destroy ], shallow: true
   end
 
+  resource :profile, only: %i[show edit update]
+
   get 'manual', to: 'manuals#show'
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
