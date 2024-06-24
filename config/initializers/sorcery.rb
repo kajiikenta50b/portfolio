@@ -267,7 +267,7 @@ Rails.application.config.sorcery.configure do |config|
     # Change default crypted_password attribute.
     # Default: `:crypted_password`
     #
-     user.crypted_password_attribute_name = :crypted_password
+    # user.crypted_password_attribute_name =
 
     # What pattern to use to join the password with the salt
     # Default: `""`
