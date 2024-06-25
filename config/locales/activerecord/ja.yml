@@ -10,6 +10,7 @@ ja:
         username: 名前
         password: パスワード
         password_confirmation: パスワード確認
+        avatar: アバター
       post:
         post_image: 飯テロ画像
         title: タイトル(料理名)

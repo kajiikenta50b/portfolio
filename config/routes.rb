@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   root "home#top"
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[ new create ]
   resources :posts, only: %i[ index new create show ] do
     resources :comments, only: %i[ create edit destroy ], shallow: true
   end
 
-  resource :profile, only: %i[show edit update]
+  resource :profile, only: %i[ show edit update ]
 
   get 'manual', to: 'manuals#show'
   get 'login', to: 'user_sessions#new'
