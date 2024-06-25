@@ -62,7 +62,11 @@ COPY --from=build /rails /rails
 
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
-    chown -R rails:rails db log storage tmp
+    chown -R rails:rails db log storage tmp && \
+    mkdir -p /rails/public/uploads/tmp && \
+    chown -R rails:rails /rails/public/uploads && \
+    chmod -R 755 /rails/public/uploads && \
+    chmod -R 700 /rails/public/uploads/tmp
 USER rails:rails
 
 # Copy the entrypoint script and set permissions
