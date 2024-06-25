@@ -1,16 +1,16 @@
 /* 背景画像をスライドさせるアニメーションの定義 */
 @keyframes backgroundSlide {
-    0% { background-image: url('ra-men.jpeg'); }
-    33% { background-image: url('ra-men.jpeg'); }
-    34% { background-image: url('sushi.jpeg'); }
-    66% { background-image: url('sushi.jpeg'); }
-    67% { background-image: url('hamburger.jpeg'); }
-    100% { background-image: url('hamburger.jpeg'); }
+    0% { background-image: url('ra-men_top_page.jpg'); }
+    33% { background-image: url('ra-men_top_page.jpg'); }
+    34% { background-image: url('sushi_top_page.jpg'); }
+    66% { background-image: url('sushi_top_page.jpg'); }
+    67% { background-image: url('melon_pan_top_page.jpg'); }
+    100% { background-image: url('melon_pan_top_page.jpg'); }
   }
   
   /* アニメーションを適用するためのスタイル */
   .background-slider {
-    height: 75vh; /* 画面全体の高さ */
+    height: 70vh; /* 画面全体の高さ */
     width: 100%; /* 画面全体の幅 */
     background-size: cover;
     background-position: center;
