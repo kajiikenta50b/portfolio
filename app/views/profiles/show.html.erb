@@ -1,16 +1,26 @@
 <div class="container pt-3">
   <div class="row">
     <div class="col-md-10 offset-md-1">
+      <div class="text-center mb-4">
+        <% icon_file = "default_#{current_user.faction}.jpg" %>
+        <%= image_tag icon_file, class: 'img-fluid', size: '100x100' %>
+      </div>
       <h1 class="float-left mb-5"><%= t('.title') %></h1>
-      <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-success float-right' %>
+      <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-primary float-right' %>
+      <br>
+      <br>
       <table class="table">
+        <tr>
+          <th scope="row"><%= User.human_attribute_name(:username) %></th>
+          <td><%= current_user.username %></td>
+        </tr>
         <tr>
           <th scope="row"><%= User.human_attribute_name(:email) %></th>
           <td><%= current_user.email %></td>
         </tr>
         <tr>
-          <th scope="row"><%= User.human_attribute_name(:full_name) %></th>
-          <td><%= current_user.decorate.full_name %></td>
+          <th scope="row"><%= User.human_attribute_name(:introduction) %></th>
+          <td><%= current_user.introduction %></td>
         </tr>
         <tr>
           <th scope="row"><%= User.human_attribute_name(:avatar) %></th>

@@ -17,10 +17,10 @@ class ProfilesController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :avatar, :avatar_cache)
+    params.require(:user).permit(:username, :email, :avatar, :avatar_cache, :introduction)
   end
 end

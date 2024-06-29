@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_24_121243) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_28_144314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,10 +40,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_24_121243) do
     t.string "username"
     t.integer "faction"
     t.bigint "rank_id"
-    t.string "avatar_url"
+    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "salt"
+    t.text "introduction"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
