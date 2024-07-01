@@ -6,6 +6,9 @@
         <%= image_tag icon_file, class: 'img-fluid', size: '100x100' %>
       </div>
       <h1 class="float-left mb-5"><%= t('.title') %></h1>
+      <%= link_to t('defaults.likes'), likes_posts_path, class: 'btn btn-primary mb-3' %>
+      <br>
+      <br>
       <%= link_to t('defaults.edit'), edit_profile_path, class: 'btn btn-primary float-right' %>
       <br>
       <br>

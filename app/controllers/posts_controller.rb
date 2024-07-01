@@ -23,6 +23,10 @@ class PostsController < ApplicationController
     @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
+  def likes
+    @liked_posts = current_user.liked_posts.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def post_params
