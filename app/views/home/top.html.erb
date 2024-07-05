@@ -2,6 +2,12 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col text-center">
+      <%= render 'shared/search_form', q: @q, url: posts_path %>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col text-center">
       <h1>「飯テロ(めしテロ)」</h1>
       <p>
         それは「第三者の食欲を刺激して苛ませる行為」という意味で用いられる俗な表現である。
