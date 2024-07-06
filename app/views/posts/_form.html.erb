@@ -1,0 +1,20 @@
+<%= form_with model: @post do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="mb-3">
+      <%= f.label :post_image %>
+      <%= f.file_field :post_image, class: "form-control", accept: 'image/*' %>
+      <%= f.hidden_field :post_image_cache %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+    <br>
+    <div class="mb-3">
+      <%= f.label :body %>
+      <%= f.text_area :body, class: "form-control", rows: "10" %>
+    </div>
+    <%= f.submit '投稿する', class: "btn btn-primary" %>
+    <br>
+<% end %>
+<br>

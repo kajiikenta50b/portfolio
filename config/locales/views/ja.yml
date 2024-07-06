@@ -10,17 +10,21 @@ ja:
   defaults:
     post: 投稿
     edit: 編集
+    delete_confirm: 削除しますか？
     likes: ブックマーク一覧
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
       updated: "%{item}を更新しました"
       not_updated: "%{item}を更新出来ませんでした"
+      deleted: "%{item}を削除しました"
   header:
     login: ログイン
     logout: ログアウト
     post: 投稿
+    post_index: 投稿一覧
     new_post: 新規投稿
+    like_index: ブックマーク一覧
     my_page: マイページ
   user_sessions:
     new:
@@ -42,6 +46,8 @@ ja:
       title: 新規投稿
     show:
       title: 投稿詳細
+    edit:
+      title: 投稿編集
     likes:
       title: ブックマーク一覧
   profiles:
