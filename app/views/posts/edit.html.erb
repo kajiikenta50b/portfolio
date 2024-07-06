@@ -1,0 +1,11 @@
+<% content_for(:title, t('.title')) %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+    <br>
+      <h1><%= t('.title') %></h1>
+      <br>
+      <%= render 'form', post: @post %>
+    </div>
+  </div>
+</div>

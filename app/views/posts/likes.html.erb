@@ -1,15 +1,17 @@
 <% content_for(:title, t('.title')) %>
 <div class="container pt-3">
-  <h1><%= t('.title') %></h1>
+  <div class="col text-center">
+  <h2><%= t('.title') %></h2>
   <br>
-  <div class="row">
-    <div class="col-12">
-      <div class="row">
-        <% if @liked_posts.present? %>
-          <%= render @liked_posts %>
-        <% else %>
-          <p>ブックマークはありません</p>
-        <% end %>
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <% if @liked_posts.present? %>
+            <%= render @liked_posts %>
+          <% else %>
+            <p>ブックマークはありません</p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

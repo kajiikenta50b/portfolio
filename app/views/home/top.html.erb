@@ -34,9 +34,11 @@
       <br>
       <!-- 投稿一覧の内容はここに追加されます -->
       <% if @posts.present? %>
-      <% @posts.each do |post| %>
-        <%= render 'posts/post', post: post %>
-      <% end %>
+        <div class="row">
+          <% @posts.each do |post| %>
+            <%= render 'posts/post', post: post %>
+          <% end %>
+        </div>
       <% else %>
         <div class="mb-3">投稿がありません</div>
       <% end %>
