@@ -10,7 +10,7 @@
           <div class="ms-2">
             <%= render 'posts/like_buttons', post: post %>
           </div>
-          <% if current_user.own?(post) %>
+          <% if logged_in? && current_user.own?(post) %>
           <div class='ms-auto'>
             <%= link_to edit_post_path(post), id: 'button-edit-#{post.id}' do %>
               <i class="bi bi-pencil-fill"></i>
