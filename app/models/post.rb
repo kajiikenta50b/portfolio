@@ -7,6 +7,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def self.ransackable_attributes(auth_object = nil)
     ["body", "created_at", "id", "title", "updated_at", "user_id"]
