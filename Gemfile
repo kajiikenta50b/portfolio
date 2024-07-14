@@ -86,4 +86,5 @@ group :test do
   gem "selenium-webdriver"
 end
 
+gem 'dotenv-rails', groups: [:development, :test]
 gem "dockerfile-rails", ">= 1.6", :group => :development
