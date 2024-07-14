@@ -17,6 +17,9 @@ class PostImageUploader < CarrierWave::Uploader::Base
       img.format('webp') { |c| c.fuzz '3%' }
       img
     end
+  rescue => e
+    Rails.logger.error "MiniMagick processing error: #{e.message}"
+    raise CarrierWave::ProcessingError.new("MiniMagick processing error: #{e.message}")
   end
 
   def filename
