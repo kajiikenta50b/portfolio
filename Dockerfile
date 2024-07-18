@@ -76,7 +76,7 @@ USER rails:rails
 COPY --chmod=0755 docker-entrypoint.sh /usr/bin/
 
 # Entrypoint prepares the database.
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
