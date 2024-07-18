@@ -4,5 +4,6 @@ class HomeController < ApplicationController
   def top
     @q = Post.ransack(params[:q])
     @posts = @q.result.includes(:user).order(created_at: :desc)
+    @top_faction = TopFaction.last_week_top_faction
   end
 end
