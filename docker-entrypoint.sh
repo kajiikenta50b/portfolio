@@ -11,8 +11,5 @@ else
   bundle exec rails db:migrate
 fi
 
-# Start cron service
-service cron start
-
 # Execute the container's main process
 exec "$@"
