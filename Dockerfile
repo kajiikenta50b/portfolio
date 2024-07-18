@@ -7,6 +7,9 @@ FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 # Rails app lives here
 WORKDIR /rails
 
+# Install tini and cron
+RUN apt-get update -qq && apt-get install --no-install-recommends -y tini cron
+
 # Set production environment
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
@@ -53,7 +56,7 @@ FROM base
 
 # Install packages needed for deployment
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips postgresql-client imagemagick && \
+    apt-get install --no-install-recommends -y curl libvips postgresql-client imagemagick cron && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
@@ -73,7 +76,7 @@ USER rails:rails
 COPY --chmod=0755 docker-entrypoint.sh /usr/bin/
 
 # Entrypoint prepares the database.
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/bin/docker-entrypoint.sh"]
 
 # Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
