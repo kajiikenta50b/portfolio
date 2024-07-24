@@ -17,6 +17,12 @@ class User < ApplicationRecord
 
   scope :from_last_week, -> { where(created_at: 1.week.ago.beginning_of_day..Time.current.end_of_day) }
 
+  def self.factions_i18n
+    factions.keys.each_with_object({}) do |faction, hash|
+      hash[faction.to_sym] = I18n.t("activerecord.attributes.enums.user.faction.#{faction}")
+    end
+  end
+
   def self.top_faction_by_new_users(factions)
     user_counts = from_last_week.where(faction: factions).group(:faction).count
     top_factions = user_counts.select { |_, v| v == user_counts.values.max }.keys
@@ -30,7 +36,8 @@ class User < ApplicationRecord
 
   def self.top_faction_by_total_users(factions)
     total_user_counts = where(faction: factions).group(:faction).count
-    total_user_counts.max_by { |_, v| v }.first
+    top_faction = total_user_counts.max_by { |_, v| v }
+    top_faction ? top_faction.first : nil
   end
 
   def own?(object)

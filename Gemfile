@@ -61,6 +61,7 @@ gem 'fog-aws'
 gem 'letter_opener'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'whenever', require: false
+gem 'enum_help'
 
 gem 'execjs'
 gem 'mini_racer'

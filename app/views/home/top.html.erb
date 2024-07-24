@@ -32,8 +32,10 @@
     <div class="col text-center">
       <h2>投稿一覧</h2>
       <br>
+      <br>
       <% if @top_faction.present? %>
-        <h1>今週の投稿数: "<%= @top_faction %>派"が優勢！</h1>
+        <h1>今週の飯テロ数: 「<%= @top_faction %>」が優勢！</h1>
+        <p>毎週月曜日に更新</p>
       <% end %>
       <br>
       <!-- 投稿一覧の内容はここに追加されます -->

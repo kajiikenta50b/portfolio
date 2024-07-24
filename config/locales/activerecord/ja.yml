@@ -18,6 +18,12 @@ ja:
       post: 投稿
       comment: コメント
     attributes:
+      enums:
+        user:
+          faction:
+            rice: 米
+            noodle: 麺
+            bread: パン
       user:
         email: メールアドレス
         username: 名前
