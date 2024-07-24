@@ -51,9 +51,9 @@ RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 # Final stage for app image
 FROM base
 
-# Install packages needed for deployment
+# Install packages needed for deployment and cron
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips postgresql-client imagemagick && \
+    apt-get install --no-install-recommends -y curl libvips postgresql-client imagemagick cron && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy built artifacts: gems, application
@@ -75,6 +75,6 @@ COPY --chmod=0755 docker-entrypoint.sh /usr/bin/
 # Entrypoint prepares the database.
 ENTRYPOINT ["docker-entrypoint.sh"]
 
-# Start the server by default, this can be overwritten at runtime
+# Start cron and the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
+CMD ["bash", "-c", "cron && ./bin/rails server -b 0.0.0.0"]

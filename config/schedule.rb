@@ -6,9 +6,9 @@
 # Example:
 #
 set :output, "log/cron_log.log"
-set :environment, "development" # 必要に応じて"production"に変更
+set :environment, "production" # 必要に応じて"development/production"に変更
 #
-every 1.hour do
+every :monday, at: '12am' do
   rake "faction_rank:calculate_top"
 end
 #

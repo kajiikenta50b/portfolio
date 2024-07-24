@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+    @top_faction = Post.top_faction
   end
 
   def new
