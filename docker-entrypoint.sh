@@ -15,7 +15,7 @@ fi
 bundle exec whenever --update-crontab
 
 # Start cron service
-cron
+service cron start
 
 # Execute the container's main process
 exec "$@"
