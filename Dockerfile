@@ -56,6 +56,9 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libvips postgresql-client imagemagick cron && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
+# Ensure /var/run exists and has appropriate permissions
+RUN mkdir -p /var/run && chmod -R 777 /var/run
+
 # Copy built artifacts: gems, application
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
