@@ -65,8 +65,11 @@ COPY --from=build /rails /rails
 
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
-    chown -R rails:rails /rails db log storage tmp public/uploads
-
+    chown -R rails:rails db log storage tmp && \
+    mkdir -p /rails/public/uploads/tmp && \
+    chown -R rails:rails /rails/public/uploads && \
+    chmod -R 755 /rails/public/uploads && \
+    chmod -R 700 /rails/public/uploads/tmp
 USER rails:rails
 
 # Copy the entrypoint script and set permissions
@@ -77,4 +80,4 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Start cron and the server by default, this can be overwritten at runtime
 EXPOSE 3000
-CMD ["bash", "-c", "cron && ./bin/rails server -b 0.0.0.0"]
+CMD ["bash", "-c", "cron && ./bin/rails server -b 0.0.0.0 -p 3000"]
