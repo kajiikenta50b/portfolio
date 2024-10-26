@@ -11,11 +11,5 @@ else
   bundle exec rails db:migrate
 fi
 
-# Update crontab with whenever settings
-bundle exec whenever --update-crontab
-
-# Start cron service
-service cron start
-
 # Execute the container's main process
 exec "$@"

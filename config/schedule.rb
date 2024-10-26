@@ -5,12 +5,13 @@
 
 # Example:
 #
-set :output, "log/cron_log.log"
-set :environment, "production" # 必要に応じて"development/production"に変更
+#一旦コメントアウト
+#set :output, "log/cron_log.log"
+#set :environment, "production" # 必要に応じて"development/production"に変更
 #
-every :monday, at: '12am' do
-  rake "faction_rank:calculate_top"
-end
+#every :monday, at: '12am' do
+#  rake "faction_rank:calculate_top"
+#end
 #
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
