@@ -12,6 +12,11 @@ every :monday, at: '12am' do
   rake "faction_rank:calculate_top"
 end
 #
+
+every 1.minute do
+  command "echo 'Cron is working!' >> /rails/log/cron.log"
+end
+
 # every 4.days do
 #   runner "AnotherModel.prune_old_records"
 # end

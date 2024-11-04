@@ -11,21 +11,31 @@ WORKDIR /rails
 ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
-    BUNDLE_WITHOUT="development"
+    BUNDLE_WITHOUT="development" \
+    PATH="/usr/local/node/bin:$PATH"
 
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
 # Install packages needed to build gems and node modules
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential curl git libpq-dev libvips node-gyp pkg-config python-is-python3 imagemagick
+    apt-get install --no-install-recommends -y \
+      build-essential \
+      curl \
+      git \
+      libpq-dev \
+      libvips \
+      node-gyp \
+      pkg-config \
+      python-is-python3 \
+      imagemagick && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
-# Install JavaScript dependencies
+# Install Node.js and Yarn
 ARG NODE_VERSION=20.14.0
 ARG YARN_VERSION=1.22.22
-ENV PATH=/usr/local/node/bin:$PATH
 RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
-    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
+    /tmp/node-build-master/bin/node-build "$NODE_VERSION" /usr/local/node && \
     npm install -g yarn@$YARN_VERSION && \
     rm -rf /tmp/node-build-master
 
@@ -35,9 +45,10 @@ RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
 
-# Install node modules
+# Install node modules and clean up yarn cache
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN yarn install --frozen-lockfile && \
+    yarn cache clean
 
 # Copy application code
 COPY . .
@@ -51,10 +62,15 @@ RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 # Final stage for app image
 FROM base
 
-# Install packages needed for deployment and cron
+# Install packages needed for deployment and cron, then clean up
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y curl libvips postgresql-client imagemagick cron && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+    apt-get install --no-install-recommends -y \
+      curl \
+      libvips \
+      postgresql-client \
+      imagemagick \
+      cron && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 # Ensure /var/run exists and has appropriate permissions
 RUN mkdir -p /var/run && chmod -R 777 /var/run
@@ -63,7 +79,7 @@ RUN mkdir -p /var/run && chmod -R 777 /var/run
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
 
-# Run and own only the runtime files as a non-root user for security
+# Set up a non-root user for security and set permissions on required folders
 RUN useradd rails --create-home --shell /bin/bash && \
     chown -R rails:rails db log storage tmp && \
     mkdir -p /rails/public/uploads/tmp && \
