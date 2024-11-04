@@ -5,14 +5,13 @@
 
 # Example:
 #
-#一旦コメントアウト
-#set :output, "log/cron_log.log"
-#set :environment, "production" # 必要に応じて"development/production"に変更
 #
-#every :monday, at: '12am' do
-#  rake "faction_rank:calculate_top"
-#end
-#
+set :output, "log/cron_log.log"
+set :environment, "production" # 必要に応じて"development/production"に変更
+
+every :monday, at: '12am' do
+  rake "faction_rank:calculate_top"
+end
 
 every 1.minute do
   command "echo 'Cron is working!' >> /rails/log/cron.log"
