@@ -1,48 +1,41 @@
-# fly.toml app configuration file generated for 3foodskingdom on 2024-06-11T23:26:37+09:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+app = "3foodskingdom"
+primary_region = "nrt"
+console_command = "/rails/bin/rails console"
 
-app = '3foodskingdom'
-primary_region = 'nrt'
-console_command = '/rails/bin/rails console'
+[checks.status]
+grace_period = "5s"
+interval = "10s"
+method = "GET"
+path = "/up"
+port = 3000
+protocol = "http"
+timeout = "2s"
+tls_skip_verify = false
+type = "http"
 
-[build]
+  [checks.status.headers]
+  X-Forwarded-Proto = "https"
 
 [deploy]
-  release_command = "/rails/bin/rails db:prepare"
-
-[http_service]
-  internal_port = 3000
-  force_https = true
-  auto_stop_machines = true
-  auto_start_machines = true
-  min_machines_running = 0
-  processes = ['app']
-
-[checks]
-  [checks.status]
-    port = 3000
-    type = 'http'
-    interval = '10s'
-    timeout = '2s'
-    grace_period = '5s'
-    method = 'GET'
-    path = '/up'
-    protocol = 'http'
-    tls_skip_verify = false
-
-    [checks.status.headers]
-      X-Forwarded-Proto = 'https'
-
-[[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
-  cpus = 1
-
-[[statics]]
-  guest_path = '/rails/public'
-  url_prefix = '/'
+release_command = "/rails/bin/rails db:prepare"
 
 [env]
-  RAILS_ENV = "production"
+RAILS_ENV = "production"
+# 他の環境変数も必要に応じて追加
+
+[http_service]
+internal_port = 3000
+force_https = true
+auto_start_machines = true
+auto_stop_machines = true
+min_machines_running = 0
+processes = ["app"]
+
+[[statics]]
+guest_path = "/rails/public"
+url_prefix = "/"
+
+[[vm]]
+cpu_kind = "shared"
+cpus = 1
+memory = "1gb"
