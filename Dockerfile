@@ -69,4 +69,4 @@ COPY --chmod=0755 docker-entrypoint.sh /usr/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 3000
-CMD ["bash", "-c", "cron && ./bin/rails server -b 0.0.0.0 -p 3000"]
+CMD bash -c "service cron start && ./bin/rails server -b 0.0.0.0 -p 3000"
