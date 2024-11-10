@@ -30,6 +30,7 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
         avatar: アバター
+        introduction: 自己紹介
       post:
         post_image: 飯テロ画像
         title: タイトル(料理名)

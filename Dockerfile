@@ -62,7 +62,7 @@ RUN mkdir -p /var/run && chmod -R 777 /var/run
 COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY --from=build /rails /rails
 
-# `USER rails:rails`行を削除
+# USER rails:rails の行は削除
 
 COPY --chmod=0755 docker-entrypoint.sh /usr/bin/
 
@@ -70,3 +70,4 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 3000
 CMD bash -c "service cron start && ./bin/rails server -b 0.0.0.0 -p 3000"
+
