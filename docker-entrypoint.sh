@@ -14,6 +14,14 @@ fi
 # Update crontab with whenever settings
 bundle exec whenever --update-crontab
 
+# Check if the cron service is already running, and clear any stale PID file
+if [ -f /var/run/crond.pid ]; then
+  if ! pgrep -x "cron" > /dev/null; then
+    echo "Stale cron PID file found. Removing..."
+    rm -f /var/run/crond.pid
+  fi
+fi
+
 # Start cron service
 service cron start
 
